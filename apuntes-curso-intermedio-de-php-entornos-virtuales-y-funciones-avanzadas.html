@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Curso Intermedio de PHP: Entornos Virtuales y Funciones Avanzadas</title>
+</head>
+
+<body>
+    <header class="text-center">
+        <h1>Curso Intermedio de PHP: Entornos Virtuales y Funciones Avanzadas</h1>
+    </header>
+    <main class="container">
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 1 de 25 - ¿Debería seguir usando versiones antiguas de PHP?</h2>
+            
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 2 de 25 - Documentación: la biblia de PHP</h2>
+            <p>
+                <a href="https://www.php.net/">https://www.php.net/</a>
+            </p>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 3 de 25 - Que es PHP Doc</h2>
+            <pre class="prettyprint">
+                    
+                &lt?php
+
+                /**
+                 * Esta función retorna la suma de dos números
+                 * 
+                 * @param int $n1
+                 * @param int $n2
+                 * @return void
+                 */
+                function sumar($n1, $n2)
+                {
+                    return $n1 + $n2;
+                }
+                
+                $resultado = sumar(1, 2);
+                echo $resultado;
+                
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 4 de 25 - Para que sirven los entornos virtuales</h2>
+            
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>5 de 25 - Sección creando un entorno virtual con vagrant</h2>
+            <p>
+                <a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a>
+                <br>
+                <a href="https://www.vagrantup.com/">https://www.vagrantup.com/</a>
+            </p>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 6 de 25 - Creando un entorno virtual con laragon</h2>
+            <p>
+                <a href="https://laragon.org/">https://laragon.org/</a>
+            </p>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 7 de 25 - Que son los virtual hosts</h2>
+            
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 7 de 25 - configurando virtual hosts en windows</h2>
+            
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 9 de 25 - Configurando virtual hosts en linux</h2>
+            
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 10 de 25 - Configurando virtual hosts en macos</h2>
+            
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 11 de 25 - constantes en PHP</h2>
+            <p>
+              <b>const</b> 
+              dentro y fuera de clase 
+              <br> Compilacion
+              <br> No se usa dentro de bloques de codigo
+              <br> datos escalares
+              <br> case sensitive
+              <br> <b>define</b> fuera de clase
+              <br> ejecucion
+              <br> si dentro de bloques
+              <br> cualquier expresion
+              <br> case insensitive (tercer argumento en true) // DEPRECADO
+            </p>
+            <p>
+              <b>Contantes Magicas</b>
+              <br>
+              <ul>
+                <li>__LINE__</li>
+                <li>__FILE__</li>
+                <li>__DIR__</li>
+                <li>ClassName::class</li>
+              </ul>
+            </p>
+
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              define("MICHI", "Mr. Michi");
+              // define("MICHI", "Mr. Michi", true); // deprecadO
+              define("michi", "Otro. Michi");
+              
+              echo MICHI;
+              
+              echo "&ltbr>";
+              
+              echo michi;
+              
+              echo "&ltbr>";
+              
+              const PI = 3.14;
+              
+              echo PI;
+              echo "&ltbr>";
+              
+              $desicion = true;
+              
+              if ($desicion) {
+                  define('BLOCK_CONSTANT','CONSTANTE EN BLOQUE');
+                  // const BLOCK_CONSTANT = 'CONSTANTE EN BLOQUE'; // NO permitido
+                  echo BLOCK_CONSTANT;
+                  echo "&ltbr>";
+              }
+              
+              echo BLOCK_CONSTANT;
+              echo "&ltbr>";
+            </pre>
+
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 12 de 25 - ¿Variables... variables?</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              $variable = "nombre";
+              $$variable = "Michi";
+              
+              echo $nombre;
+              
+              $nombre = "carlitos";
+              $edad = 11;
+              $comida_favorita = "Lasaña";
+              
+              $variable = "nombre";
+              
+              echo "&ltbr>";
+              echo $$variable;
+              
+              $variable = "edad";
+              
+              echo "&ltbr>";
+              echo $$variable;
+              
+              $variable = "comida_favorita";
+              
+              echo "&ltbr>";
+              echo $$variable;
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 13 de 25 - Scope de PHP</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              $outside_variable = "Esta es una variable externa";
+              
+              function my_function() {
+                  global $outside_variable;
+                  echo $outside_variable;
+              }
+              
+              my_function();
+              echo "&ltpre>";
+              print_r($GLOBALS);
+              
+              function my_function2() {
+                  echo $GLOBALS["outside_variable"];
+              }
+              
+              my_function2();
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 14 de 25 - Variables superglobales</h2>
+            <ul>
+              <li>$GLOBALS</li>
+              <li>$_SERVER</li>
+              <li>$_GET</li>
+              <li>$_POST</li>
+              <li>$_FILES</li>
+              <li>$_COOKIE</li>
+              <li>$_SESSION</li>
+              <li>$_REQUEST</li>
+              <li>$_ENV</li>
+            </ul>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              echo "&lthr>";
+              echo "&lth2>GLOBALS&lt/h2>";
+              echo "&ltpre>";
+              var_dump($GLOBALS);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_SERVER&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_SERVER);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_GET&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_GET);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_POST&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_POST);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_FILES&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_FILES);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_COOKIE&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_COOKIE);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_SESSION&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_SESSION);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_REQUEST&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_REQUEST);
+              echo "&lt/pre>";
+              echo "&lthr>";
+              echo "&lth2>_ENV&lt/h2>";
+              echo "&ltpre>";
+              var_dump($_ENV);
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 15 de 25 - Redirecciones</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              header("location: https://platzi.com");
+              exit;
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 16 de 25 - Match</h2>
+            <p><b>NOTA</b> solo funciona en PHP 8</p>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              function get_country_name_match($country) {
+                  return match($country) {
+                      "MX" => "México",
+                      "COL" => "Colombia",
+                      default => "Lo siento no encontré tu país"
+                  };
+              }
+              
+              echo get_country_name_match("MX");
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 17 de 25 - Funciones Variables</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              function michi()
+              {
+                  echo "meow";
+              }
+              
+              function dogo()
+              {
+                  echo "wau";
+              }
+              
+              function zorro()
+              {
+                  echo "soy un zorro que hablo español";
+              }
+              
+              $function = "zorro";
+              
+              $function();
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 18 de 25 - Parametros por referencia</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              $cat = "Meow";
+              
+              function make_a_cat_bark(&$cat_dog) {
+                  $cat_dog = "Guau";
+              }
+              
+              make_a_cat_bark($cat);
+              
+              echo $cat;
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 19 de 25 - Argumentos a profundidad</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              function sumar_edades($edades = array(13, 17, 35))
+              {
+                  return array_sum($edades);
+              }
+              
+              echo sumar_edades();
+              echo "&ltbr>";
+              
+              echo sumar_edades(array(12, 18, 21));
+              echo "&ltbr>";
+              # trailing commas en PHP 8
+              // function multiplicar(
+              //     $n1 = 1,
+              //     $n2 = 2,
+              //     $n3 = 3,
+              // ) {
+              //     return $n1 * $n2 * $n3;
+              // }
+              
+              // echo multiplicar();
+              
+              #tambien para PHP8
+              // class UnaClaseRandom {
+              
+              // }
+              
+              // function receive_a_class($class = new UnaClaseRandom()) {
+              //     echo $class::class;
+              // }
+              
+              // receive_a_class();
+              
+              
+              function suma($n1, $n2 = 8){
+                  return $n1 + $n2;
+              }
+              
+              echo suma(8);
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 20 de 25 - named arguments</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              # solo en version 8
+              
+              function get_person_info($name, $age, $country) {
+                  echo "$name tiene $age años y vive en $country";
+              }
+              
+              get_person_info(
+                  age: 18,
+                  country: 'Colombia',
+                  name: 'Juliana'
+              );
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 21 de 25 - Funciones Anonimas</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              $numbers = [1,2,3,4];
+              
+              $numbers_by_2 = array_map(function($current) {
+                  return $current * 2;
+              }, $numbers);
+              
+              echo "&ltpre>";
+              
+              
+              var_dump($numbers_by_2);
+              
+              
+              $multiplicar_por_3 = function($current) {
+                  return $current * 3;
+              };
+              
+              $numbers_by_3 = array_map($multiplicar_por_3, $numbers_by_2);
+              
+              echo "&ltpre>";
+              
+              
+              var_dump($numbers_by_3);
+              
+              $michi = "Mr. Michi";
+              
+              $view_michi_name = function() use ($michi) {
+                  echo $michi;
+              };
+              
+              $view_michi_name();
+            </pre>
+          </article>
+        </section>
+
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 21 de 25 - arrow functions</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              $cajero = 10;
+              
+              $add_cajero = fn($add) => $cajero + $add;
+              
+              echo $add_cajero(20);
+              echo "&ltbr>";
+              
+              # Esto no fnciona... las variables globales no se pueden modificar, solo leer
+              $add_cajero2 = fn($add) => $cajero += $add;
+              
+              $add_cajero2(2);
+              $add_cajero2(20);
+              $add_cajero2(8);
+              
+              echo $cajero;
+              
+              $edades = [5,21,50,9,18];
+              
+              $mayores_de_edad = array_filter($edades, fn($current) => $current >= 18);
+              echo "&ltpre>";
+              print_r($mayores_de_edad);
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 23 de 25 - declaraciones de tipo escalar</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              function calcular_area_triangulo(int $base, int $altura) {
+                  return $base * $altura / 2;
+              }
+              
+              echo calcular_area_triangulo(5, 10);
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 24 de 25 - declaraciones de tipo devolucion</h2>
+            <pre class="prettyprint">
+                    
+              &lt?php
+
+              function suma($n1, $n2): int {
+                  return $n1 + $n2;
+              }
+              
+              echo suma(4,5);
+            </pre>
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 25 de 25 - Aprendamos sobre cookies, sesiones y modularizacion de codigo</h2>
+            
+          </article>
+        </section>
+
+
+
+
+
+
+
+
+
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
